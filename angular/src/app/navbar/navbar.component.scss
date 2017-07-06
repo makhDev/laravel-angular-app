@@ -1,0 +1,15 @@
+.navbar{
+	background-color: #002F52;
+	border-color: #002F52;
+	a{
+		height:60px;
+		color: #fff;
+		font-size: 20px;
+		font-weight: bold;
+		&:hover{
+			background-color: #fff;
+			color: #002F52;
+		}
+	}
+	
+}

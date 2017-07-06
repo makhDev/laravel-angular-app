@@ -1,0 +1,12 @@
+<div>
+    <div *ngIf="editCompany" class="form-group">
+    	<input type="text" class="form-control" required name="company" [(ngModel)]="company.company">
+    </div> 
+	<h3 *ngIf="!editCompany" (click)="onCompanyClick()">{{company.company}}</h3>
+	<div class="form-group">
+		<textarea class="form-control" rows="5" name="headquarters" [(ngModel)]="company.headquarters">
+		</textarea>
+	</div>
+	<button (click)="updateCompany()" class="btn btn-primary">Update</button>
+	<button (click)="deleteCompany()" class="btn btn-danger">Delete</button>
+</div>

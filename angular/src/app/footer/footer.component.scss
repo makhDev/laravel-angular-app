@@ -1,0 +1,28 @@
+section{
+	padding-top: 25px;
+	background: #002F52;
+	color: #ccc;
+	height: 350px;
+    word-spacing: 10px;
+    text-align: center;
+    h3{
+		font-size: 45px;
+		font-weight: bold;
+	}
+	ul{
+		margin-bottom: 25px;
+		li{
+			display: inline;
+		}
+		
+	}
+	a{
+		letter-spacing: 1px;
+		color: #ccc;
+
+		&:hover{
+			color: #000;
+			text-decoration: none;
+		}
+	}
+}

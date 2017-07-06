@@ -1,0 +1,29 @@
+<section>
+<div class="container">
+	<div class="col-sm-9">
+	    <div *ngIf="!hiddenewIndustry">
+	    	<h2>New Idustry</h2>
+	    	<form #form="ngForm" (ngSubmit)="onSubmitAddIndustry(form.value)" class="well">
+	    		<div class="form-group">
+	    			<label for="">Industry</label>
+	    			<input type="text" class="form-control" required name="industry" ngModel>
+	    		</div>
+	    		<div class="form-group">
+	    			<label for="">Description</label>
+	    			<input type="text" class="form-control" name="description" ngModel>
+	    		</div>
+	    		<button type="submit" class="btn btn-success">Save</button>
+	    		<button type="submit" class="btn btn-danger" (click)="newOrCancelIndustry()">Cancel</button>
+	    	</form>
+	    </div>
+		<app-industry-detail *ngIf="selectedIndustry && hiddenewIndustry" 
+		                     [industry]="selectedIndustry"
+		                     (updateIndustryEvent)="onUpdateIndustryEvent($event)"
+		                     (deleteIndustryEvent)="onDeleteIndustryEvent($event)"></app-industry-detail>
+	</div>
+	<div class="col-sm-3">
+	    <button (click)="newOrCancelIndustry()" style="margin-bottom: 2px;" class="btn btn-success btn-block">+ New Industry</button>
+		<app-rightbar (SelectIndustry)="onSelectIndustry($event)" [industries]="industries"></app-rightbar>
+	</div>
+</div>
+</section>	

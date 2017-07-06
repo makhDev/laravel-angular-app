@@ -1,0 +1,35 @@
+<section>
+	<div class="container">
+		<div class="col-sm-9">
+		    <div *ngIf="!hiddenewCompany">
+		    	<h2>New Company</h2>
+		    	<form #form="ngForm" (ngSubmit)="onSubmitAddCompany(form.value)" class="well">
+		    		<div class="form-group">
+		    			<label for="">Company</label>
+		    			<input type="text" class="form-control" required name="company" ngModel>
+		    		</div>
+		    		<div class="form-group">
+		    			<label for="">Headquarters</label>
+		    			<input type="text" class="form-control" name="headquarters" ngModel>
+		    		</div>
+	                <div class="form-group">
+	                   <label for="Industry" class="control-label">Industry</label>
+	                   <select  class="form-control" name="industry_id" ngModel>
+	                   	<option *ngFor="let i of industries" [ngValue]="i.id">{{i.industry}}</option>
+	                   </select>
+	                </div>
+		    		<button type="submit" class="btn btn-success">Save</button>
+		    		<button type="submit" class="btn btn-danger" (click)="newOrCancelCompany()">Cancel</button>
+		    	</form>
+		    </div>
+			<app-company-detail *ngIf="selectedCompany && hiddenewCompany" 
+			                     [company]="selectedCompany"
+			                     (updateCompanyEvent)="onUpdateCompanyEvent($event)"
+			                     (deleteCompanyEvent)="onDeleteCompanyEvent($event)"></app-company-detail>
+		</div>
+		<div class="col-sm-3">
+		    <button (click)="newOrCancelCompany()" style="margin-bottom: 2px;" class="btn btn-success btn-block">+ New Company</button>
+			<app-rightbar2 (SelectCompany)="onSelectCompany($event)" [companies]="companies"></app-rightbar2>
+		</div>
+	</div>
+</section>

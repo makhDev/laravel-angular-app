@@ -1,0 +1,12 @@
+<div>
+    <div *ngIf="editIndustry" class="form-group">
+    	<input type="text" class="form-control" required name="industry" [(ngModel)]="industry.industry">
+    </div> 
+	<h3 *ngIf="!editIndustry" (click)="onIndustryClick()">{{industry.industry}}</h3>
+	<div class="form-group">
+		<textarea class="form-control" rows="5" name="description" [(ngModel)]="industry.description">
+		</textarea>
+	</div>
+	<button (click)="updateIndustry()" class="btn btn-primary">Update</button>
+	<button (click)="deleteIndustry()" class="btn btn-danger">Delete</button>
+</div>
